@@ -21,7 +21,7 @@ replicas:
 patches:
   - target:
       kind: Service
-      name: dev-blue-svc
+      name: blue-service
     patch: |-
       - op: replace
         path: /spec/ports/0/port

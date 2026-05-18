@@ -21,7 +21,7 @@ replicas:
 patches:
   - target:
       kind: Service
-      name: dev-orange-svc
+      name: orange-service
     patch: |-
       - op: replace
         path: /spec/ports/0/port
