@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/ucheor/Kustomize_ArgoCD_K8s_Deployment_Terraform_QR.git'
-    path: manifests-ArgoCD/Dev-Cluster/overlays/orange
+    path: kustomize-ArgoCD/Dev-Cluster/overlays/orange
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'

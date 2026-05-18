@@ -10,14 +10,3 @@ My project is structured around the GitOps methodology, using Terraform for Infr
 - **App-of-Apps Implementation:** I use the App-of-Apps pattern to bootstrap the cluster, where one parent ArgoCD application manages child Kustomize applications for my networking, security, and MLOps tools.
 
 - **GitOps with ArgoCD:** I integrated ArgoCD to ensure that my cluster's state always reflects my Git repository. ArgoCD acts as the controller that reconciles my desired Git state with the live cluster.   
-
----
-
-![ArgoCD Kustomize integration](project2-screenshots/34_argocd_cluster-b_green.png)
-
-
----
-
-![ArgoCD Kustomize integration](project2-screenshots/35_argocd_cluster-b_orange.png)
-
----
