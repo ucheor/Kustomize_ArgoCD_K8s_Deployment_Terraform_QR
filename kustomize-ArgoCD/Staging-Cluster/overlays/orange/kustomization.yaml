@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/orange
+
+# Adds a prefix or namespace specific to Cluster-A
+namespace: staging-orange
+namePrefix: staging-
+
+# Built-in image tag management
+images:
+  - name: argocd-trf-k8s-demo-orange
+    newName: ucheor/argocd-trf-k8s-demo-orange
+    newTag: v1
+
+replicas:
+  - name: orange  # Make sure this matches the metadata.name of the deployment in your base folder
+    count: 3
+
+patches:
+  - target:
+      kind: Service
+      name: staging-orange-svc
+    patch: |-
+      - op: replace
+        path: /spec/ports/0/port
+        value: 8084
+      - op: replace
+        path: /spec/type
+        value: LoadBalancer

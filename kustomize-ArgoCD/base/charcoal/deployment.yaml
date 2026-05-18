@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: charcoal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: charcoal
+  template:
+    metadata:
+      labels:
+        app: charcoal
+    spec:
+      containers:
+      - name: charcoal
+        image: ucheor/argocd-trf-k8s-demo-charcoal
+        ports:
+        - containerPort: 80
