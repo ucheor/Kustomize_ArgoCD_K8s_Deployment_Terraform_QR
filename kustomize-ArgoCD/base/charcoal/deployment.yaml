@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: charcoal
-        image: ucheor/argocd-trf-k8s-demo-charcoal
+        image: ucheor/argocd-trf-k8s-demo-charcoal:v1
         ports:
         - containerPort: 80

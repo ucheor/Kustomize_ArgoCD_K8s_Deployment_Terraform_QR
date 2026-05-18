@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: blue
-        image: ucheor/argocd-trf-k8s-demo-blue
+        image: ucheor/argocd-trf-k8s-demo-blue:v1
         ports:
         - containerPort: 80
