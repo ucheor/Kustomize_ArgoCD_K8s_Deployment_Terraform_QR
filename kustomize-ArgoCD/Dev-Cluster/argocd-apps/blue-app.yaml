@@ -11,7 +11,7 @@ spec:
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: blue
+    namespace: dev-blue
   syncPolicy:
     automated:
       prune: true
