@@ -7,11 +7,11 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/ucheor/Kustomize_ArgoCD_K8s_Deployment_Terraform_QR.git'
-    path: manifests-ArgoCD/Staging-Cluster/overlays/charcoal
+    path: kustomize-ArgoCD/Staging-Cluster/overlays/charcoal
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: charcoal
+    namespace: staging-charcoal
   syncPolicy:
     automated:
       prune: true
