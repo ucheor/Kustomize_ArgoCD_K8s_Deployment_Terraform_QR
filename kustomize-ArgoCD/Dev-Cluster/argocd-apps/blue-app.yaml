@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/ucheor/Kustomize_ArgoCD_K8s_Deployment_Terraform_QR.git'
+    repoURL: 'https://github.com/ucheor/Kustomize_ArgoCD_K8s_Deployment_Terraform_QR.git' #update to your repo as appropriate
     path: kustomize-ArgoCD/Dev-Cluster/overlays/blue
     targetRevision: HEAD
   destination:
