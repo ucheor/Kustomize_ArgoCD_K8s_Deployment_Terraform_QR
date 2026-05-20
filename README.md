@@ -8,6 +8,8 @@ Managing infrastructure and application deployments across multiple environments
 
 This project demonstrates a complete, end-to-end solution to that problem. By combining four complementary tools — Docker for reproducible image builds, Terraform modules for reusable infrastructure, ArgoCD for GitOps-driven deployments, and Kustomize for environment-specific configuration — the entire workflow from a single source of truth in Git to running applications on Kubernetes becomes automated, auditable, and trivially repeatable.   
 
+Here is the GitHub repo: https://github.com/ucheor/Kustomize_ArgoCD_K8s_Deployment_Terraform_QR.git
+
 ### The Pain Points This Project Solves   
 
 •	**Manual, error-prone environment setup:** Spinning up a new Kubernetes cluster with all its dependencies (VPC, node groups, ArgoCD, IAM roles) by hand is slow and inconsistent. Terraform modules wrap this complexity so the same tested code provisions every cluster.   
@@ -94,11 +96,11 @@ Before provisioning any infrastructure, the GitOps manifests need to be ready in
 
 **Directory Layout:**   
 The kustomize-ArgoCD/ directory follows this structure:    
-•	base/{blue,charcoal,green,orange}/ — canonical deployment.yaml, service.yaml, kustomization.yaml  
-•	Dev-Cluster/overlays/{blue,charcoal,green,orange}/ — overlay kustomization.yaml for the dev environment  
-•	Staging-Cluster/overlays/{blue,charcoal,green,orange}/ — overlay kustomization.yaml for the staging environment  
-•	Dev-Cluster/argocd-apps/ — one ArgoCD Application manifest per colour  
-•	Staging-Cluster/argocd-apps/ — equivalent ArgoCD Application manifests for staging environment   
+•	**base/{blue,charcoal,green,orange}/** — canonical deployment.yaml, service.yaml, kustomization.yaml  
+•	**Dev-Cluster/overlays/{blue,charcoal,green,orange}/** — overlay kustomization.yaml for the dev environment  
+•	**Staging-Cluster/overlays/{blue,charcoal,green,orange}/** — overlay kustomization.yaml for the staging environment  
+•	**Dev-Cluster/argocd-apps/** — one ArgoCD Application manifest per colour  
+•	**Staging-Cluster/argocd-apps/** — equivalent ArgoCD Application manifests for staging environment   
 
 --- 
 ![Figure 8 — Full kustomize-ArgoCD directory tree showing base, overlays, and argocd-apps for both clusters](images/09_argo_manifests_files_and_directories.png)
@@ -135,7 +137,7 @@ We are using terraform to provision both EKS clusters and install ArgoCD into ea
 
 ---
 
-The three shared modules are:   
+**The three shared modules are:**  
 •	modules/vpc — creates VPC, subnets, NAT gateway, and route tables   
 •	modules/eks — creates the EKS cluster, node group, and cluster IAM roles   
 •	modules/argocd — installs ArgoCD into the cluster via Helm, and exposes it through a LoadBalancer service    
@@ -455,7 +457,7 @@ terraform destroy --auto-approve
 Both clusters and all associated AWS resources (VPCs, EKS clusters, node groups, load balancers, IAM roles) are fully destroyed, leaving no orphaned cloud resources and incurring no further cost.
 
 ## Summary   
-This project demonstrates how a small investment in template-based thinking — parameterised builds, reusable modules, overlay-based configuration — eliminates nearly all manual work in a multi-environment Kubernetes deployment pipeline.   
+This project demonstrates how a small investment in template-based thinking — parameterized builds, reusable modules, overlay-based configuration — eliminates nearly all manual work in a multi-environment Kubernetes deployment pipeline.   
 The six steps map to a DRY-principle:   
 •	Step 1: One parameterised build script produces all Docker image variants   
 •	Step 2: One Kustomize base serves all environments via lightweight overlays   
